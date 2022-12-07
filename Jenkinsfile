@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
 
 			steps {
-				sh 'docker build -t timohito/sspr4:latest .'
+				sh 'docker build -t timohito/sspr:latest .'
 			}
 		}
         stage('Test') {
             steps {
 				sh 'docker stop $(docker ps -a -q)'
 				sh 'docker rm $(docker ps -a -q)'
-				sh 'docker run -d --name "test_sspr" timohito/sspr4:latest bash'
+				sh 'docker run -d --name "test_sspr" timohito/sspr:latest bash'
 				sh 'docker exec "test_sspr" sh -c "dotnet vstest TestService.dll"'
 				sh 'docker stop "test_sspr"'
             }
@@ -35,7 +35,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push timurok73/sspr4:latest'
+				sh 'docker push timurok73/sspr:latest'
 			}
 		}
     }
