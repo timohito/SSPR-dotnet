@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-		DOCKERHUB_CREDENTIALS=credentials('akhmetov')
+		DOCKERHUB_CREDENTIALS=credentials('timur_docker')
 	}
     stages {
         stage('Cloning Git') {
