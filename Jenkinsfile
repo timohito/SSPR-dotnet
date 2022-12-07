@@ -15,15 +15,6 @@ pipeline {
 				sh 'docker build -t timohito/sspr:latest .'
 			}
 		}
-        stage('Test') {
-            steps {
-				sh 'docker stop $(docker ps -a -q)'
-				sh 'docker rm $(docker ps -a -q)'
-				sh 'docker run -d --name "test_sspr" timurok73/sspr:latest bash'
-				sh 'docker exec "test_sspr" sh -c "dotnet vstest TestService.dll"'
-				sh 'docker stop "test_sspr"'
-            }
-        }
 
         stage('Login') {
 
