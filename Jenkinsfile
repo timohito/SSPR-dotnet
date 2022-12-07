@@ -35,7 +35,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push timurok73/sspr:latest'
+				sh 'docker push timurok73/sspr4:latest'
 			}
 		}
     }
