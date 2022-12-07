@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
 
 			steps {
-				sh 'docker build -t timohito/sspr:latest .'
+				sh 'docker build -t timurok73/sspr:latest .'
 			}
 		}
 
